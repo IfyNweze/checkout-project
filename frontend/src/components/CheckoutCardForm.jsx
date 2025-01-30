@@ -26,7 +26,7 @@ export default function CheckoutCardForm({ totalPrice, address, products, setRes
     return () => observer.disconnect();
   }, [isDarkMode]);
 
-  
+
   // dark mode for the checkout form
   const appearance = {
     colorAction: "#2F6AF7",
@@ -180,7 +180,7 @@ export default function CheckoutCardForm({ totalPrice, address, products, setRes
             onClick={startCheckout}
             disabled={totalPrice === 0}
           >
-            To Proceed to Checkout (Flow Displayed Here)
+            Proceed to Checkout (Flow Displayed Here)
           </button>
         ) : (
           <div

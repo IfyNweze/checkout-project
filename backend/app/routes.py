@@ -37,14 +37,14 @@ def create_payment_session():
             logger.error("No items in the cart")
             return jsonify({"error": "At least one item must be in the cart"}), 400
 
-        # ✅ Calculate the total amount dynamically
+        # Calculate the total amount dynamically
         amount = sum(item["price"] * item["units"] for item in items)
 
         if amount <= 0:
             logger.error(" Invalid amount: %s", amount)
             return jsonify({"error": "Amount must be greater than zero"}), 400
 
-        # ✅ Generate unique order reference
+        # Generate unique order reference
         order_ref = generate_order_reference()
 
         # Checkout.com API URL
@@ -69,6 +69,7 @@ def create_payment_session():
             "success_url": f"https://checkout-project-ify-nwezes-projects.vercel.app/checkout-success?order_ref={order_ref}",  
             "failure_url": f"https://checkout-project-ify-nwezes-projects.vercel.app/checkout-failure?order_ref={order_ref}", 
             "enabled_payment_methods": ["googlepay", "applepay", "paypal", "card"],
+            "processing_channel_id": "pc_zs5fqhybzc2e3jmq3efvybybpq",
             "billing": {
                 "address": {
                     "address_line1": address.get("street", "123 High St."),
@@ -113,7 +114,7 @@ def create_payment_session():
         logger.debug(" Complete Checkout.com response: %s", response_data)
 
         if response.status_code == 201:
-            logger.debug("✅ Payment session created successfully.")
+            logger.debug(" Payment session created successfully.")
             return jsonify(response_data), 201
 
         error_message = response_data.get('error_type', 'Unknown error occurred')
