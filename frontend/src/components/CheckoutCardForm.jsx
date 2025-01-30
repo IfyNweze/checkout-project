@@ -26,6 +26,7 @@ export default function CheckoutCardForm({ totalPrice, address, products, setRes
     return () => observer.disconnect();
   }, [isDarkMode]);
 
+  
   // dark mode for the checkout form
   const appearance = {
     colorAction: "#2F6AF7",
