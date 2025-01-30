@@ -1,5 +1,8 @@
 import { useState, useEffect, useRef } from "react";
 
+const backendUrl = import.meta.env.VITE_BACKEND_URL;
+
+
 export default function CheckoutCardForm({ totalPrice, address, products, setResetTrigger }) {
   const [checkoutInstance, setCheckoutInstance] = useState(null);
   const [checkoutVisible, setCheckoutVisible] = useState(false);
@@ -81,7 +84,7 @@ export default function CheckoutCardForm({ totalPrice, address, products, setRes
   // 🌍 Fetch payment session from backend
   const fetchPaymentSession = async (amount) => {
     try {
-      const response = await fetch("http://127.0.0.1:5001/api/create-payment-session", {
+      const response = await fetch(`${backendUrl}/api/create-payment-session`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -126,7 +129,7 @@ export default function CheckoutCardForm({ totalPrice, address, products, setRes
         paymentSession,
         onReady: () => console.log("Checkout is ready"),
         onPaymentCompleted: (_component, paymentResponse) => {
-          fetch(`/api/get-order-ref?payment_id=${paymentResponse.id}`)
+          fetch(`${backendUrl}/api/get-order-ref?payment_id=${paymentResponse.id}`)
             .then((response) => response.json())
             .then((data) => {
               if (data.order_ref) {

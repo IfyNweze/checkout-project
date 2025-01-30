@@ -38,10 +38,10 @@ const CheckoutPage = () => {
           <div className="bg-white p-4 rounded-lg border-4 border-[#2F6AF7]  dark:bg-black">
             <AddressForm setAddress={setAddress} resetTrigger={resetTrigger} />
           </div>
-          <div className="bg-white p-4 rounded-lg min-h-[350px] border-4 border-[#2F6AF7]  dark:bg-black">
+          <div className="bg-white p-4 rounded-lg min-h-[550px] border-4 border-[#2F6AF7]  dark:bg-black">
             <CheckoutSummary products={products} formatPrice={formatPrice} />
           </div>
-          <div className="bg-white p-4 flex flex-col rounded-lg min-h-[350px] border-4 border-[#2F6AF7]  dark:bg-black h-full">
+          <div className="bg-white p-4 flex flex-col rounded-lg min-h-[650px] border-4 border-[#2F6AF7]  dark:bg-black h-full">
             <CheckoutCardForm 
               totalPrice={totalPrice} 
               address={address} 
