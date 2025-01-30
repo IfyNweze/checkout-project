@@ -66,8 +66,8 @@ def create_payment_session():
             "amount": int(amount * 100),
             "currency": currency,
             "payment_type": "Regular",
-            "success_url": f"https://checkout-project-pi.vercel.app/checkout-success?order_ref={order_ref}",  
-            "failure_url": f"https://checkout-project-pi.vercel.app/checkout-failure?order_ref={order_ref}", 
+            "success_url": f"https://checkout-project-ify-nwezes-projects.vercel.app/checkout-success?order_ref={order_ref}",  
+            "failure_url": f"https://checkout-project-ify-nwezes-projects.vercel.app/checkout-failure?order_ref={order_ref}", 
             "enabled_payment_methods": ["googlepay", "applepay", "paypal", "card"],
             "billing": {
                 "address": {
