@@ -12,7 +12,7 @@ const ProductCards = ({ products, setProducts, formatPrice }) => {
   return (
     <div className=" gap-1 auto-rows-fr">
       {products.map((product) => (
-        <div key={product.id} className="bg-white p-4 rounded  flex flex-col">
+        <div key={product.id} className="bg-white p-4 rounded  flex flex-col  dark:bg-black">
           <img
             src={product.image}
             alt={product.name}
