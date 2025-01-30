@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 
-const backendUrl = import.meta.env.VITE_BACKEND_URL;
+const backendUrl = import.meta.env.VITE_BACKEND_URL
 
 
 export default function CheckoutCardForm({ totalPrice, address, products, setResetTrigger }) {
