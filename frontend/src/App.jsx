@@ -13,8 +13,8 @@ const CheckoutPage = () => {
   const [products, setProducts] = useState([
     { id: 1, name: "Present A", price: 10, units: 0, image: "/Present_A.jpg" },
     { id: 2, name: "Present B", price: 20, units: 0, image: "/Present_B.jpg" },
-    { id: 3, name: "Present C", price: 30, units: 0, image: "/Present_C.jpg" },
-    { id: 4, name: "Present D", price: 40, units: 0, image: "/Present_D.jpg" },
+    // { id: 3, name: "Present C", price: 30, units: 0, image: "/Present_C.jpg" },
+    // { id: 4, name: "Present D", price: 40, units: 0, image: "/Present_D.jpg" },
   ]);
 
   const [address, setAddress] = useState({});
