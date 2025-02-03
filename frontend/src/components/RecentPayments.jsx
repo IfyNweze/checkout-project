@@ -20,7 +20,7 @@ const RecentPayments = () => {
   // Fetching payments every 5 seconds
   useEffect(() => {
     const fetchPayments = () => {
-      fetch("http://localhost:5001/api/recent-payments") 
+      fetch("https://checkout-project-production.up.railway.app/api/recent-payments") 
         .then(response => {
           if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
           return response.json();
