@@ -16,7 +16,6 @@ webhook = Blueprint("webhook", __name__)
 # Logging setup
 logger.add("webhook_logs.log", rotation="1 day")
 
-### ✅ **HMAC Verification Function**
 def verify_signature(request):
     """Validate webhook signature using HMACSHA256."""
     provided_signature = request.headers.get("Cko-Signature")
@@ -51,7 +50,6 @@ def verify_signature(request):
         logger.error(f"⚠️ Error verifying signature: {e}")
         return False
 
-### 🔹 Utility Functions
 
 def get_event_count(event_id):
     """Query Supabase to count occurrences of the event_id."""
@@ -93,7 +91,6 @@ def handle_webhook():
     # Log the incoming request
     logger.info(" Received webhook request")
     
-    # ✅ Validate webhook signature
     if not verify_signature(request):
         logger.warning(" Unauthorized webhook request")
         return jsonify({"message": "Unauthorized request"}), 403 
